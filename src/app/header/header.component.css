@@ -1,0 +1,10 @@
+.navbarBackgroundColor{
+    background-color: rgb(241, 160, 244);
+}
+
+
+.nav-item{
+    padding-left: 20px;
+    color: white;
+    margin-top: 20px;
+}
