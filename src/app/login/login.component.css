@@ -1,28 +1,22 @@
 
-.background{
-  background-image: url(../images/backgroundimage1.jpg);
-  background-repeat: no-repeat;
- 
-}
-  .card{
-    margin-top: 10px;
-    border: none;
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    background-color: rgb(190, 233, 238);
-    background-image: url("../images/signup.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-shadow: 20px;
-    border-color: rgb(200, 176, 249);
-    border-style: solid;
 
-  }
+.card{
+    
+    
+  width: 500px;
+  
+   top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(190, 233, 238);
+  background-image: url("../images/signup.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-color: rgb(200, 176, 249);
+  border-style: solid;
+ 
+
+}
   .card-body{
     padding-top: 50px;
   }

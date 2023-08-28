@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     HeaderComponent,
     HomepageComponent,
     AboutUsComponent,
+    FooterComponent,
 
   ],
   imports: [
