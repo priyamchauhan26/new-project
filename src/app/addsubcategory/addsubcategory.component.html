@@ -1,22 +1,44 @@
 <p>addsubcategory works!</p>
 <div class="container">
+
     <div class="row">
         <div class="col">
             <div class="card">
+                <form  class="example-form" (ngSubmit)="formSubmit()">
+
                 <div class="card-body">
-                  <h5 class="card-title">ADD Category</h5>
+                  <h5 class="card-title">ADD Sub-Category</h5>
                   <div class="row">
-                    <div class="col-sm-6">
+
+                    <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">Example select</label>
+                        <select name="categoryName" class="form-control" (change)="changecatname($event)" >
+                            <option  *ngFor=" let category  of productcatlist"  [value]="category.id">{{category.category}}</option>
+                        </select>
+                      </div>                 
+                      </div>
+
+                    <div class="col-sm-4">
                   <label for="inputEmail4"> Sub Category</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="sub category">
+                  <input type="email" class="form-control"[(ngModel)]="subcategory.subcategory" name="subcategory" placeholder="sub category">
                   </div>
-                  <div class="col-sm-6">
+
+                  <div class="col-sm-4">
                   <label for="inputEmail4">Sub Category Description</label>
-                  <input type="email" class="form-control" id="inputEmail4"  placeholder="Description">
+                  <input type="description" class="form-control"[(ngModel)]="subcategory.desciption" name="description" placeholder="Description">
                   </div>
+
                   <div class="submit">
-               <button type="button" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </div>
+               <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
+   
+
+
+
+               </div>
+               </div>
+               </form>
+   </div>
+
 </div>
