@@ -1,0 +1,17 @@
+.container-fluid{
+   
+    margin-top: 100px;
+}
+.row{
+    border:  3px solid white;
+   
+}
+.col{
+    border: 3px solid green;
+}
+.Submit{
+
+    margin-top: 20px;
+    margin-left: 800px;
+    
+}
