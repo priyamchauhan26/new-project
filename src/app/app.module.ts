@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductListComponent } from './product-list/product-list.component';
 import { MoreInfoModalComponent } from './more-info-modal/more-info-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CustompipePipe } from './custompipe.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AddsubcategoryComponent,
     ProductListComponent,
     MoreInfoModalComponent,
+    CustompipePipe,
 
 
   ],

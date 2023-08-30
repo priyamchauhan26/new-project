@@ -10,7 +10,7 @@ export class Product{
     code:String|any;
     subcategory:String|any;
     pcid:number|any;
-    desciption:String|any;
+    description:String|any;
     filename:String|any;
     image:String|any;
     date:Date|any;
@@ -27,7 +27,7 @@ export class Product{
         code:String,
         subcategory:String,
         pcid:number,
-        desciption:String,
+        description:String,
         filename:String,
         image:String,
         date:Date,
