@@ -15,28 +15,24 @@ export class AddcategoryComponent {
   constructor(private merchanservice :MerchantserviceService)
   {
   }
-    public  categogory={
-      categoryName:'',
+    public  Category={
+      category:'',
       description:''
      }
 
      ngOnInit(): void {
-      this.addcategoryform=new FormGroup({
-        categoryName :new FormControl(null,Validators.required),
-        description  :new FormControl(null,Validators.required)
-
-      })
+    
       
     }
 
     formSubmit()
     {
-      console.log(this.categogory);
+      console.log(this.Category);
       {
       
       }
 
-    this.merchanservice.addcat(this.categogory).subscribe((data:any) =>
+    this.merchanservice.addcat(this.Category).subscribe((data:any) =>
     {
       console.log(data);
      if(data.status==200)
@@ -44,8 +40,11 @@ export class AddcategoryComponent {
       alert("success");
 
      }
+     else{
+      alert("input field are mendatory");
+     }
 
-     alert("input field are mendatory");
+     location.reload();
 
       this.merchant=data;
     });

@@ -3,20 +3,20 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <form [formGroup] ='addcategoryform'  (ngSubmit)="formSubmit()">
+                    <form class ='addcategoryform'  (ngSubmit)="formSubmit()">
                   <h5 class="card-title">ADD Category</h5>
                   <div class="row">
                     <div class="col-sm-6">
                   <label for="inputEmail4">Category</label>
                   <div class="form-group">
                     
-                  <input type="email" class="form-control"    formControlName="category" placeholder="category">
+                  <input type="email" class="form-control"   [(ngModel)]="Category.category" name="category" placeholder="category">
                   </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                   <label for="inputEmail4">Category Description</label>
-                  <input type="email" class="form-control" id="inputEmail4"   formControlName="description" placeholder="Description">
+                  <input type="email" class="form-control" id="inputEmail4"  [(ngModel)]="Category.description" name="description" placeholder="Description">
                   </div>
                   </div>
                   <div class="form-group">
