@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
   }
   signup(){
     this.user=this.singupForm.value;
-    this.http.post<User>("http://localhost:8080/user/addusers",this.user).subscribe(response=>{
+    this.http.post<User>("http://localhost:8082/user/addusers",this.user).subscribe(response=>{
       
      console.log(response);
      

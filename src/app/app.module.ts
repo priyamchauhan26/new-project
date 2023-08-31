@@ -14,6 +14,10 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { AddsubcategoryComponent } from './addsubcategory/addsubcategory.component';
 import { FormsModule } from '@angular/forms';
+import { ProductListComponent } from './product-list/product-list.component';
+import { MoreInfoModalComponent } from './more-info-modal/more-info-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CustompipePipe } from './custompipe.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { FormsModule } from '@angular/forms';
     AddProductComponent,
     AddcategoryComponent,
     AddsubcategoryComponent,
+    ProductListComponent,
+    MoreInfoModalComponent,
+    CustompipePipe,
+
 
   ],
   imports: [
@@ -34,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
