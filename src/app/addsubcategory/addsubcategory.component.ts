@@ -54,6 +54,16 @@ export class AddsubcategoryComponent {
   this.merchanservice.addsubcat(this.subcategory).subscribe((data:any) =>
     {
       console.log(data);
+     if(data.status==200)
+     {
+      alert("save data")
+     }
+     else if(data.status==400)
+     {
+      alert("input are missing")
+     }
+     location.reload();
+
  });
 }
 

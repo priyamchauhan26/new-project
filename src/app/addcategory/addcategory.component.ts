@@ -45,6 +45,8 @@ export class AddcategoryComponent {
 
      }
 
+     alert("input field are mendatory");
+
       this.merchant=data;
     });
   }
