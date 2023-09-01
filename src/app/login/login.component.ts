@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../service/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,22 +14,42 @@ export class LoginComponent implements OnInit {
   loginform !:FormGroup;
   h!:string;
 
+  public  userlogin={
+    email:'',
+    password:'',
+   }
+
  
- constructor(private fb:FormBuilder,private http:HttpClient){}
+ constructor(private userservice:UserService,private route:Router){
+
+ }
   ngOnInit(){
-    this.loginform=this.fb.group({
-      email : new FormControl(null,(Validators.required,Validators.email)),
-      password : new FormControl(null,Validators.required)
-    })
+
   }
 
   onLogin(){
     
-    this.http.post<any>("http://localhost:8080/login",this.loginform.value).subscribe(h=>{
-      console.log(h);
-    })
-   
+    this.userservice.userLogin(this.userlogin).subscribe((data:any) =>
+    {
+      console.log(data);
+      if(data.status==200)
+      {
+       alert(data.message)
+       localStorage.setItem('useremail',this.userlogin.email);
+       this.route.navigate(['/home']);
+      }
+      else if(data.status==400)
+      {
+        alert(data.message)
+      }
+
+    });
+
+
     this.loginform.reset();
+  }
+  email(arg0: string, email: any) {
+    throw new Error('Method not implemented.');
   }
   
 

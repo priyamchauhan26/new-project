@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HomepageComponent {
 
+  constructor(){
+  console.log(localStorage.getItem('useremail'))
+
+  }
+
+ 
+
 }

@@ -12,6 +12,8 @@
         <li class="nav-item">
           <p routerLink="/aboutus" style="cursor: pointer;">Contact Us</p>
         </li>
+
+        <div *ngIf="isDivVisible" style="display: flex;">
         <li class="nav-item">
           <p routerLink="/addproduct" style="cursor: pointer;">add product</p>
         </li>
@@ -22,7 +24,9 @@
         <li class="nav-item">
           <p routerLink="/addsubcategory" style="cursor: pointer;">add SubCategory</p>
         </li>
+       </div>
         </ul>
+        
         <ul class="navbar-nav list-unstyled float-right">
             <li class="nav-item">
                 <p routerLink="/login" style="cursor: pointer;">Login</p>
