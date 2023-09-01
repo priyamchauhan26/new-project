@@ -3,5 +3,7 @@ export class MessageDto{
 	  httpstatus:String|undefined;
 	 message:String|undefined;
      data:Object|undefined;
-    constructor(status:number,httpstatus:String,message:String ,data:Object){}
+    constructor(){}
+    //status:number,httpstatus:String,message:String ,data:Object
+    
 }
