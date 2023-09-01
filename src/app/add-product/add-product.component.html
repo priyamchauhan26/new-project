@@ -53,12 +53,10 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="category">Category</label>
-                  <select
-                    class="form-control scrollable-select"
-                    id="category"
-                    (change)="onSelectCategory($event)"
+                  <select name="categoryName" class="form-control" (change)="changecatname($event)" >
+
                   >
-                    <option *ngFor="let drop of drops">{{ drop }}</option>
+                  <option  *ngFor=" let category  of productcatlist"  [value]="category.id">{{category.category}}</option>
 
                     <!-- Add more options as needed -->
                   </select>
@@ -68,13 +66,13 @@
                 <div class="form-group">
                   <label for="subcategory">Sub Category</label>
                   <select
-                    class="form-control scrollable-select"
+                  name="subcategoryName" class="form-control" 
                     (change)="onSelectsubCategory($event)"
                     formControlName="subcategory"
                     id="subcategory"
                   >
-                    <option *ngFor="let drop of drops" [value]="drop">
-                      {{ drop }}
+                    <option *ngFor="let subcategory of productsubcatlist" [value]="subcategory.id">
+                      {{ subcategory.subcategory}}
                     </option>
 
                     <!-- Add more options as needed -->

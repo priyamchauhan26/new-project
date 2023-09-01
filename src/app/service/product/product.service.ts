@@ -13,7 +13,7 @@ export class ProductService {
 
   addproduct(addproductform:any,product:Product){
     product=addproductform.value;
-    return this.http.post<any>("",product)
+    return this.http.post<any>("http://localhost:8082/add_product",product)
 
     
   }

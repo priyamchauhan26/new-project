@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../model/Product.model';
 import { ProductService } from '../service/product/product.service';
 import { MessageDto } from '../dtos/Message.model';
+import { Router } from '@angular/router';
+import { MerchantserviceService } from '../merchantservice.service';
 
 
 @Component({
@@ -11,13 +13,11 @@ import { MessageDto } from '../dtos/Message.model';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
-  drops: string[] = [
-    'Hello',
-    'GoodMorning',
-    'GoodNight',
-    'Bye',
-    'Jai Shree Ram',
-  ];
+  public productcatlist:any
+  selectcatname:any
+  public productsubcatlist:any
+  selectsubcatname:any
+
   subcategory: String | any;
   category: String | any;
   addproductform: FormGroup | any;
@@ -28,7 +28,34 @@ export class AddProductComponent implements OnInit {
 
   image: string | ArrayBuffer | null = null;
 
-    constructor(private productservice :ProductService){}
+    constructor(private productservice :ProductService, private router:Router,private merchanservice :MerchantserviceService){
+
+      
+    this.merchanservice.getcategory().subscribe((data)=>
+    {
+      console.warn("data",data);
+      this.productcatlist=data;
+    }
+    );
+    }
+
+    
+ changecatname(e:any)
+ {
+  console.warn(e.target.value);
+  this.selectcatname=e.target.value
+
+  console.log(this.selectcatname);
+
+  this.merchanservice.getProductSubcat(this.selectcatname).subscribe((data)=>
+  {
+    console.log(data);
+    this.productsubcatlist=data;
+  });
+
+
+
+ }
 
   onFileSelected(event: any): void {
     const file = event.target.files[0];
@@ -36,6 +63,7 @@ export class AddProductComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = (e) => {
         this.image = e.target!.result;
+   //  this.image="C:\\Users\\Lenovo\\";
         console.log(this.image);
       };
       reader.readAsDataURL(file);
@@ -58,6 +86,7 @@ export class AddProductComponent implements OnInit {
       address: new FormControl(null, Validators.required),
       size: new FormControl(null, Validators.required),
       subcategory: new FormControl(null, Validators.required),
+      image:new FormControl(null, Validators.required)
     });
   }
 
@@ -65,27 +94,32 @@ export class AddProductComponent implements OnInit {
     this.subcategory = event.target.value;
     console.log(this.subcategory);
   }
-  onSelectCategory(event: any) {
-    this.category = event.target.value;
-    console.log(this.category);
-  }
+  
   ProductAdded() {
-   this.product.image=this.image;
-    if(this.image !==null){
-    this.apiDto=this.productservice.addproduct(this.addproductform,this.product).subscribe(data=>{
-     this.apiDto=data;
-     if(this.apiDto.status=="200"){
-      alert("Product Added Successfully");
-     }
-     else{
-      alert(this.apiDto.message);
-     }
-    })
+    console.log(this.image);
+   console.log(this.addproductform)
+   this.productservice.addproduct(this.addproductform,this.product).subscribe((data:any) =>
+   {
+
+   });
+
+
+  //  this.product.image=this.image;
+  //   if(this.image !==null){
+  //   this.apiDto=this.productservice.addproduct(this.addproductform,this.product).subscribe(data=>{
+  //    this.apiDto=data;
+  //    if(this.apiDto.status=="200"){
+  //     alert("Product Added Successfully");
+  //    }
+  //    else{
+  //     alert(this.apiDto.message);
+  //    }
+  //   })
     
-    }
-    else{
-      alert("Choose the image")
-    }
+  //   }
+  //   else{
+  //     alert("Choose the image")
+  //   }
    
   }
 }
