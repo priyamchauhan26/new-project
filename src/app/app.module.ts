@@ -18,6 +18,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { MoreInfoModalComponent } from './more-info-modal/more-info-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CustompipePipe } from './custompipe.pipe';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CustompipePipe } from './custompipe.pipe';
     ProductListComponent,
     MoreInfoModalComponent,
     CustompipePipe,
+    DashboardComponent,
 
 
   ],

@@ -7,6 +7,7 @@ import { AddProductComponent } from "./add-product/add-product.component";
 import { AddsubcategoryComponent } from "./addsubcategory/addsubcategory.component";
 import { AddcategoryComponent } from "./addcategory/addcategory.component";
 import { ProductListComponent } from "./product-list/product-list.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 
 const routes: Routes = [
     {path:'', redirectTo:'home',pathMatch:"full"},
@@ -16,7 +17,8 @@ const routes: Routes = [
     {path:'addproduct',component:AddProductComponent },
     {path:'addcategory',component:AddcategoryComponent},
     {path:'addsubcategory',component:AddsubcategoryComponent},
-    {path:'productlist',component:ProductListComponent}
+    {path:'productlist',component:ProductListComponent},
+    {path:'dashboard',component:DashboardComponent}
 
 
 ]
