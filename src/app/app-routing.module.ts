@@ -8,6 +8,8 @@ import { AddsubcategoryComponent } from "./addsubcategory/addsubcategory.compone
 import { AddcategoryComponent } from "./addcategory/addcategory.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { ProfileInfoComponent } from "./profile-info/profile-info.component";
+import { BussinessInfoComponent } from "./bussiness-info/bussiness-info.component";
 
 const routes: Routes = [
     {path:'', redirectTo:'home',pathMatch:"full"},
@@ -20,7 +22,11 @@ const routes: Routes = [
     {path:'addcategory',component:AddcategoryComponent},
     {path:'addsubcategory',component:AddsubcategoryComponent},
     {path:'productlist',component:ProductListComponent},
-    {path:'dashboard',component:DashboardComponent}
+    {path:'dashboard',component:DashboardComponent,children:[
+        {path:'profile',component:ProfileInfoComponent},
+        {path:'business',component:BussinessInfoComponent},
+        {path:'', redirectTo:'profile',pathMatch:'full'}
+    ]}
 
 
 ]

@@ -19,7 +19,10 @@ import { MoreInfoModalComponent } from './more-info-modal/more-info-modal.compon
 import { MatDialogModule } from '@angular/material/dialog';
 import { CustompipePipe } from './custompipe.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ProfileInfoComponent } from './profile-info/profile-info.component';
+import { BussinessInfoComponent } from './bussiness-info/bussiness-info.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MoreInfoModalComponent,
     CustompipePipe,
     DashboardComponent,
+    ProfileInfoComponent,
+    BussinessInfoComponent,
 
 
   ],
@@ -47,7 +52,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     MatDialogModule,
-    BrowserAnimationsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
