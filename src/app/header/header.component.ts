@@ -12,8 +12,6 @@ export class HeaderComponent {
  currentUser:any;
  constructor()
  {
-
-  
   this.currentUser=localStorage.getItem("useremail");
   if(this.currentUser!=null)
   {

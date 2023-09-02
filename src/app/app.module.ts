@@ -19,6 +19,7 @@ import { MoreInfoModalComponent } from './more-info-modal/more-info-modal.compon
 import { MatDialogModule } from '@angular/material/dialog';
 import { CustompipePipe } from './custompipe.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

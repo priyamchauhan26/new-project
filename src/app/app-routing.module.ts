@@ -14,7 +14,9 @@ const routes: Routes = [
     {path:'home',component:HomepageComponent},
     {path:'login' ,component:LoginComponent },
     {path:'signup',component:SignupComponent},
-    {path:'addproduct',component:AddProductComponent },
+    {path:'addproduct',component:AddProductComponent,children:[
+        {path:':id',component:AddProductComponent},
+    ] },
     {path:'addcategory',component:AddcategoryComponent},
     {path:'addsubcategory',component:AddsubcategoryComponent},
     {path:'productlist',component:ProductListComponent},

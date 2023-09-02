@@ -28,7 +28,83 @@
         </div>
     </div>
     </div>
+    <div class="card-body">
+    <div
+    class="modal"
+    tabindex="-1"
+    role="dialog"
+    [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFU7KYAFSi5zmUIaeunOwBq9Za37pkSdYOug&usqp=CAU"  class="rounded-circle" alt="Cinque Terre" width="100" height="100">
+        </div>
+        <div class="modal-body">
+    <div class="row">
+        <div class="col-4">
+     <p>Name: {{productinfo.productname}}</p>
+      
+<hr>
+        </div>
+        <div class="col-4">
 
+            <p>BrandName:{{productinfo.brandname}}</p>
+           
+            <hr>
+            
+        </div>
+        <div class="col-4">
+            <p>price:{{productinfo.price}}</p>
+            <hr>
+            
+        </div>
+
+        <div class="col-4">
+            <p>totalquantity: {{productinfo.totalquantity}}</p>
+            <hr>
+            
+        </div>
+
+        <div class="col-4">
+            <p>sellquantity:{{productinfo.sellquantity}}</p>
+            <hr>
+            
+        </div>
+        <div class="col-4">
+            <p>serialnumber:{{productinfo.serialnummber}}</p>
+            <hr>
+            
+        </div>
+        <div class="col-4">
+            <button type="button" class="btn btn-danger">DELETE</button>
+           
+            
+        </div>
+
+        <div class="col-4">
+            <button type="button" class="btn btn-primary"   (click)="EditPopup()">EDIT</button>
+            
+            
+        </div>
+      
+            <button type="button" class="btn btn-danger" 
+                    (click)="closePopup()">
+              Close
+            </button>
+          
+
+    </div>
+
+
+
+        </div>
+
+        </div>
+        </div>
+        
+        </div>
+      </div>
+    
 
 
 
