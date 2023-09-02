@@ -7,8 +7,31 @@
 }
 
 
+form {
+    display: flex;
+    flex-direction: column;
+   
+    gap: 10px; /* Adjust the spacing between form elements as needed */
+    background-color: #fff; /* Set background color to white */
+    padding: 20px; /* Add padding for better spacing */
+  }
+  
+  /* Apply styles to the input fields */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  textarea {
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    width: 150%; /* Make all input fields the same width */
+    margin-bottom: 10px;
+    background-color: #fff; /* Set background color to white */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
 
- 
+  }
+  
   /* Style the button */
   button {
     background-color: #007bff; /* Change to your desired button color */
@@ -32,6 +55,9 @@
     flex-direction: column;
     gap: 10px; /* Adjust the spacing between First Name and Last Name */
   }
-  
+  .card-body .row{
+    gap: 140px;
+  }
+
   
   
