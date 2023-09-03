@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { MessageDto } from '../dtos/Message.model';
 import { User } from '../model/user.model';
 import { UserService } from '../service/user/user.service';
@@ -12,44 +12,39 @@ import { UserService } from '../service/user/user.service';
   styleUrls: ['./profile-info.component.css']
 })
 export class ProfileInfoComponent implements OnInit {
+  private dataSubject = new BehaviorSubject<any>(null);
+data$ = this.dataSubject.asObservable();
+ 
+  user: User|any
+  updateduser:any
 
-  private userDataSubject = new BehaviorSubject<any>(null);
-  userData$ = this.userDataSubject.asObservable();
-
-
+ 
  currentUserEmail:String|any;
   updateprofileform:FormGroup|any;
-  user:User|any;
+  
   messagedto:MessageDto|any
 
   constructor(private userservice:UserService,private route:Router){
-    this.onreload();
+     
   }
   
   ngOnInit(){
+    this.onreload()
+    
     this.updateprofileform=new FormGroup({
-      // firstName:new FormControl(this.user.firstName,Validators.required),
-      // lastName:new FormControl(this.user.lastName,Validators.required),
-      // username:new FormControl(this.user.username,Validators.required),
-      // email:new FormControl(this.user.email,Validators.required),
-      // password:new FormControl(this.user.password,Validators.required),
-      // createDate:new FormControl(this.user.createDate,Validators.required),
-      // status:new FormControl(this.user.status,Validators.required),
-      // address:new FormControl(this.user.address,Validators.required),
-      // mobileNo:new FormControl(this.user.mobileNo,Validators.required),
+    
       firstName:new FormControl(null,Validators.required),
       lastName:new FormControl(null,Validators.required),
-      username:new FormControl(null,Validators.required),
-      email:new FormControl(null,Validators.required),
-      password:new FormControl(null,Validators.required),
-      createDate:new FormControl(null,Validators.required),
-      status:new FormControl(null,Validators.required),
+      username:new FormControl({ value:null,disabled: true},Validators.required),
+      email:new FormControl({ value:null,disabled: true},Validators.required),
+      password:new FormControl({ value:null,disabled: true},Validators.required),
+      createDate:new FormControl({ value:null,disabled: true},Validators.required),
+      status:new FormControl({ value:null,disabled: true},Validators.required),
       address:new FormControl(null,Validators.required),
-      mobileNo:new FormControl(null,Validators.required),
+      mobileNo:new FormControl({ value:null,disabled: true},Validators.required),
 
     })
   
-   console.log("user Data",this.user);
     
 
 
@@ -61,21 +56,84 @@ export class ProfileInfoComponent implements OnInit {
 
 
   }
-  onSubmit(){
+  //  onSubmit(){
+  //   this.data$.subscribe((data:any)=>{
+  //    console.log( "On Submit call",data.data.userId);
 
+  //    this.updateduser.userId=data.data.userId;
+  //    console.log( "On Submit call",this.updateduser.userId);
+  //    this.updateduser=this.updateprofileform.value;
+  //   this.userservice.updateprofile(this.updateduser).subscribe((data:any)=>{
+
+  //     this.messagedto=data;
+  //     if (this.messagedto.status==200) {
+  //    alert(this.messagedto.message);
+  //     }
+  //     else{
+  //       alert(this.messagedto.message);
+  //     }
+  //   })
+  //   console.log(this.updateduser);
+  //   });
+    
+    
+  // }
+  onSubmit() {
+    // Assuming this.data$ emits data with the expected structure
+    this.data$.subscribe((data: any) => {
+      if (data && data.data && data.data.userId) {
+        // Initialize this.updateduser if it's not already initialized
+        if (!this.updateduser) {
+          this.updateduser = {};
+        }
+  
+        // Assign the userId from data to this.updateduser.userId
+        this.updateduser.userId = data.data.userId;
+  
+        // Assign form values to this.updateduser
+        this.updateduser = {
+          ...this.updateduser, // Preserve userId if it already exists
+          ...this.updateprofileform.value,
+        };
+  
+        // Assuming this.userservice.updateprofile(this.updateduser) returns an Observable
+        this.userservice.updateprofile(this.updateduser).subscribe((response: any) => {
+          this.messagedto = response;
+          if (this.messagedto.status == 200) {
+            alert(this.messagedto.message);
+          } else {
+            alert(this.messagedto.message);
+          }
+        });
+  
+        console.log(this.updateduser);
+      } else {
+        console.error("Data is missing or does not have the expected structure.");
+      }
+    });
   }
+  
+  
 
 
-  onreload(){
+  async onreload(){
     this.currentUserEmail=localStorage.getItem('useremail');
-    this.userservice.getuserByemail(this.currentUserEmail).subscribe((data: any)=>{
+     
+     this.userservice.getuserByemail(this.currentUserEmail).subscribe((data:any)=>{
       console.log("data", data);
       this.messagedto=data;
-      this.user=this.messagedto;
-    
-
-      this.userDataSubject.next(this.user);
+     this.user=this.messagedto.data;
       
-    })
+      this.updateprofileform.patchValue(this.user);
+      this.dataSubject.next(data);
+      
+
+
+      
+    } 
+    )
+    
   }
+ 
+ 
 }

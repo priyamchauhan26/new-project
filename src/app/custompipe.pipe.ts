@@ -11,8 +11,15 @@ export class CustompipePipe implements PipeTransform {
     }
     return value;
   }
-
-
+ 
 }
+
+  
+   
+  
+    
+  
+
+
 
 

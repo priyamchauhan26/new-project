@@ -41,13 +41,15 @@ export class LoginComponent implements OnInit {
       else if(data.status==400)
       {
         alert(data.message)
+        
       }
 
     });
 
-
-    this.loginform.reset();
+  
+    
   }
+
   email(arg0: string, email: any) {
     throw new Error('Method not implemented.');
   }

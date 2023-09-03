@@ -16,9 +16,12 @@ export class UserService {
 
   getuserByemail(email:any){
     const params=new HttpParams().set("email",email);
-    return this.http.get<User>("http://localhost:8082/user/getuser",{params})
+    return this.http.post("http://localhost:8082/user/getuser",params)
 
 
+  }
+  updateprofile(user:any){
+    return  this.http.post("http://localhost:8082/user/updateprofiledetails",user )
   }
 }
 

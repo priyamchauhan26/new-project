@@ -19,7 +19,6 @@ import { MoreInfoModalComponent } from './more-info-modal/more-info-modal.compon
 import { MatDialogModule } from '@angular/material/dialog';
 import { CustompipePipe } from './custompipe.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { BussinessInfoComponent } from './bussiness-info/bussiness-info.component';
 
