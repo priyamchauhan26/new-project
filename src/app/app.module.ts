@@ -14,40 +14,16 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { AddsubcategoryComponent } from './addsubcategory/addsubcategory.component';
 import { FormsModule } from '@angular/forms';
-import { ProductListComponent } from './product-list/product-list.component';
-import { MoreInfoModalComponent } from './more-info-modal/more-info-modal.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { CustompipePipe } from './custompipe.pipe';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    SignupComponent,
-    HeaderComponent,
-    HomepageComponent,
-    AboutUsComponent,
-    FooterComponent,
-    AddProductComponent,
-    AddcategoryComponent,
-    AddsubcategoryComponent,
-    ProductListComponent,
-    MoreInfoModalComponent,
-    CustompipePipe,
-    DashboardComponent,
+
 
 
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    MatDialogModule,
-    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
