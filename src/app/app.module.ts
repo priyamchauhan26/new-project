@@ -21,6 +21,8 @@ import { CustompipePipe } from './custompipe.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { BussinessInfoComponent } from './bussiness-info/bussiness-info.component';
+import { FieldNamePipe } from './fieldnamepipe.pipe';
+
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { BussinessInfoComponent } from './bussiness-info/bussiness-info.componen
     DashboardComponent,
     ProfileInfoComponent,
     BussinessInfoComponent,
+    FieldNamePipe
+
 
 
   ],

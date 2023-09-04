@@ -1,3 +1,51 @@
+<div class="container searchcontianer">
+   <div class="row">
+    <div class="col-3">
+        <div class="form-group">
+            <label for="fieldDropdown">Select a Field:</label>
+            <select id="fieldDropdown" class="form-control"  (change)="onFieldSelected($event)">
+                <option value="hello">Select the Fields</option>
+              <option value="productname">Product Name</option>
+              <option value="price">Price</option>
+              <option value="serialnummber">Serial NO.</option>
+              <option value="brandname">Brand Name</option>
+              <option value="address">Address</option>
+              <option value="code">Code</option>
+              <option value="size">Size</option>
+              <option value="date">Date</option>
+              
+            </select>
+          </div>
+    </div>
+    <div class="col-3" *ngIf="isdateSelected">
+        <div class="form-group">
+            <label for="fieldDropdown">{{field|fieldname}}</label>
+            <input type={{field}} id={{field}} class="form-control" placeholder="Field Value" [(ngModel)]="fieldvalue">
+        </div>
+    </div>
+
+    <div class="col-3">
+        <div class="form-group">
+            <label for="fieldDropdown">To Date</label>
+            <input type={{field}} id={{todate}} class="form-control" placeholder="Field Value" [(ngModel)]="todate">
+        </div>
+    </div>
+
+    
+
+    <div class="col-3 mt-4" style="text-align: center;">
+        <button type="submit" class="btn  btn-danger" style="width: 100%;" (click)="OnSubmit()">Search</button>
+    </div>
+   </div>
+      
+      
+
+</div>
+
+
+
+
+
 <div class="contianer maincontainer" *ngFor="let item of product ;let i=index">
     <div class="row main-row justify-content-center">
         

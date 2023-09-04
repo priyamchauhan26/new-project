@@ -7,6 +7,7 @@ import { MessageDto } from '../dtos/Message.model';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { Route, Router } from '@angular/router';
+import { SearchProduct } from '../dtos/searchproduct.model';
 
 
 @Component({
@@ -22,6 +23,18 @@ export class ProductListComponent implements OnInit  {
   pid:any
   product:Product[]|any;
   messagedto: MessageDto |any;
+  fieldslist:any[]=["productname","price","serialnummber","brandname","code","subcategory","createdDate","size"];
+
+  
+  
+  data:any
+  field: any;
+  fieldvalue:any
+  todate:any;
+  isdateSelected:boolean=false;
+
+  
+
 
   public productinfo={
     productname:'',
@@ -39,7 +52,7 @@ export class ProductListComponent implements OnInit  {
 
 
     
-  data:any
+  
   
 
    constructor(private productservice:ProductService,public router:Router){
@@ -97,6 +110,28 @@ export class ProductListComponent implements OnInit  {
 
 
   }
+
+  
+
+  onFieldSelected(event:Event){
+    const selectedValue = (event.target as HTMLSelectElement)?.value;
+    this.field = selectedValue
+   console.log("Selected Value",selectedValue);
+    if(selectedValue=="date"){
+      this.field="date";
+      this.isdateSelected=true;
+    }
+    else{
+      this.isdateSelected=false;
+    }
+  }
+  OnSubmit(){
+ 
+
+    
+  }
+
+  
 
 
 
