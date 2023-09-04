@@ -1,5 +1,7 @@
 export class SearchProduct{
-     sfield:string[]|any;
+     searchkey:String|undefined;
+     searchvalue:String|undefined;
+
 
     constructor(){
         

@@ -23,15 +23,13 @@ export class ProductListComponent implements OnInit  {
   pid:any
   product:Product[]|any;
   messagedto: MessageDto |any;
-  fieldslist:any[]=["productname","price","serialnummber","brandname","code","subcategory","createdDate","size"];
-
-  
-  
+   search = new SearchProduct()
   data:any
   field: any;
-  fieldvalue:any
+  fieldvalue:any;
   todate:any;
   isdateSelected:boolean=false;
+  finalsearchvalue:any;
 
   
 
@@ -126,7 +124,22 @@ export class ProductListComponent implements OnInit  {
     }
   }
   OnSubmit(){
- 
+   
+    
+    
+    if(this.field=="date"){
+    this.finalsearchvalue=this.fieldvalue+"-"+this.todate;
+    this.search.searchvalue=this.finalsearchvalue;
+    
+    console.log(this.search);
+    }
+    else{
+      this.search.searchkey=this.field;
+      this.search.searchvalue=this.fieldvalue;
+      
+      console.log(this.search);
+    }
+    
 
     
   }
@@ -141,21 +154,6 @@ export class ProductListComponent implements OnInit  {
 
 
 
-  // product = [
-  //   { name: 'Object 1', description: 'Description 1', details: 'Details 1', showContainer: false },
-  //   { name: 'Object 2', description: 'Description 2', details: 'Details 2', showContainer: false },
-  //   // ... more objects
-  // ];
 
-  // toggleContainer(item: any) {
-  //   item.showContainer = !item.showContainer;
-  // }
-  // openModal(object: any): void {
-  //   const dialogRef = this.dialog.open(MoreInfoModalComponent, {
-  //     width: '300px',
-  //     data: this.product,
-     
-  //   });
-  // }
  
 }
