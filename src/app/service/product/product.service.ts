@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MessageDto } from 'src/app/dtos/Message.model';
+import { SearchProduct } from 'src/app/dtos/searchproduct.model';
 import { Product } from 'src/app/model/Product.model';
 
 @Injectable({
@@ -24,6 +25,11 @@ messagedto:MessageDto|any;
   public  getProducts(){
     return this.http.get<any>("http://localhost:8082/getproductlist")
   }
+ public searchproduct(search:any){
+  return this.http.post<any>("http://localhost:8082/searchproduct",search);
+ }
+
+
 }
 //   public  getProducts():Observable<any>{
 //     this.http.get<any>("http://localhost:8082/getproductlist").subscribe(data=>{

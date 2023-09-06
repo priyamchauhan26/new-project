@@ -1,9 +1,9 @@
 export class SearchProduct{
-     searchkey:String|undefined;
-     searchvalue:String|undefined;
+     searchkey:String|any;
+     searchvalue:String|any;
 
 
-    constructor(){
+    constructor(searchkey:String|any,searchValue:String|any){
         
     }
 

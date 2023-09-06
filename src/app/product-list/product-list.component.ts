@@ -23,10 +23,11 @@ export class ProductListComponent implements OnInit  {
   pid:any
   product:Product[]|any;
   messagedto: MessageDto |any;
-   search = new SearchProduct()
+   search :SearchProduct[]=[];
+   searchdata: SearchProduct | any = new SearchProduct('', '');
   data:any
-  field: any;
-  fieldvalue:any;
+  field:String| any;
+  fieldvalue:String|any;
   todate:any;
   isdateSelected:boolean=false;
   finalsearchvalue:any;
@@ -129,16 +130,36 @@ export class ProductListComponent implements OnInit  {
     
     if(this.field=="date"){
     this.finalsearchvalue=this.fieldvalue+"-"+this.todate;
-    this.search.searchvalue=this.finalsearchvalue;
+  
+    this.searchdata.searchkey=this.field;
+    this.searchdata.searchvalue=this.finalsearchvalue;
+
+    this.search.push(this.searchdata);
+
     
     console.log(this.search);
     }
     else{
-      this.search.searchkey=this.field;
-      this.search.searchvalue=this.fieldvalue;
       
+      
+      this.searchdata.searchkey=this.field;
+    this.searchdata.searchvalue=this.fieldvalue;
+
+      this.search.push(this.searchdata);
+      console.log(this.searchdata);
       console.log(this.search);
     }
+
+    const productsearchdata=this.productservice.searchproduct(this.search).subscribe((data:any)=>{
+      this.messagedto=data;
+      this.product=this.messagedto.data;
+      if(this.messagedto.status!==200){
+        alert("No Product")
+      }
+      
+    })
+
+
     
 
     
