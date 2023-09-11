@@ -10,6 +10,7 @@ import { ProductListComponent } from "./product-list/product-list.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProfileInfoComponent } from "./profile-info/profile-info.component";
 import { BussinessInfoComponent } from "./bussiness-info/bussiness-info.component";
+import { ChangepasswordComponent } from "./changepassword/changepassword.component";
 
 const routes: Routes = [
     {path:'', redirectTo:'home',pathMatch:"full"},
@@ -17,7 +18,9 @@ const routes: Routes = [
     {path:'login' ,component:LoginComponent },
     {path:'signup',component:SignupComponent},
     {path:'addproduct',component:AddProductComponent,children:[
+        {path:'new',component:AddProductComponent},
         {path:':id',component:AddProductComponent},
+        {path:':id/edit',component:AddProductComponent}
     ] },
     {path:'addcategory',component:AddcategoryComponent},
     {path:'addsubcategory',component:AddsubcategoryComponent},
@@ -26,7 +29,8 @@ const routes: Routes = [
         {path:'profile',component:ProfileInfoComponent},
         {path:'business',component:BussinessInfoComponent},
         {path:'', redirectTo:'profile',pathMatch:'full'}
-    ]}
+    ]},
+    {path:"changepassword",component:ChangepasswordComponent}
 
 
 ]

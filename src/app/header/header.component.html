@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light  navbarBackgroundColor fixed-top">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
@@ -27,7 +27,7 @@
        </div>
         </ul>
         
-        <ul class="navbar-nav list-unstyled float-right">
+        <ul class="navbar-nav list-unstyled float-right" style="padding-right: 100px;">
             <li class="nav-item">
                 <p routerLink="/login" style="cursor: pointer;">Login</p>
 
@@ -40,6 +40,16 @@
                 <p routerLink="/productlist" style="cursor: pointer;">Product List</p>
 
             </li>
+            <!-- <li><app-changepassword></app-changepassword></li> -->
+            <li>
+              <img src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*" 
+              alt="Profile Image" id="profile-img" (click)="toggleDropdown()" style="width: 50px; height: 50px; border-radius: 100%; margin-left: 30px">
+            </li>
+            <app-profileimagedropdown></app-profileimagedropdown>
+           
+             
+            
+           
 
         </ul>
     <!-- <div *ngIf="!AllowSearch">
@@ -50,4 +60,5 @@
     </div> -->
     </div>
   </nav>
+
  

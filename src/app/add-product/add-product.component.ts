@@ -5,6 +5,8 @@ import { ProductService } from '../service/product/product.service';
 import { MessageDto } from '../dtos/Message.model';
 import { Router } from '@angular/router';
 import { MerchantserviceService } from '../merchantservice.service';
+import { EditproductService } from '../service/editproductservice/editproduct.service';
+import { EditData } from '../dtos/edit.model';
 
 
 @Component({
@@ -18,6 +20,9 @@ export class AddProductComponent implements OnInit {
   public productsubcatlist:any
   selectsubcatname:any
 
+  editproduct:EditData=new EditData();
+  editdata:Product|any;
+
   subcategory: String | any;
   category: String | any;
   addproductform: FormGroup | any;
@@ -28,7 +33,7 @@ export class AddProductComponent implements OnInit {
 
   image: string | ArrayBuffer | null = null;
 
-    constructor(private productservice :ProductService, private router:Router,private merchanservice :MerchantserviceService){
+    constructor(private productservice :ProductService, private router:Router,private merchanservice :MerchantserviceService,private editproductService:EditproductService){
 
       
     this.merchanservice.getcategory().subscribe((data)=>
@@ -88,6 +93,24 @@ export class AddProductComponent implements OnInit {
       subcategory: new FormControl(null, Validators.required),
       image:new FormControl(null, Validators.required)
     });
+
+    this.editproductService.iseditEnable.subscribe((data:any)=>{
+      console.log("Edit data calling",data);
+      this.editproduct=data;
+      console.log("Edit product recieived",this.editproduct)
+      console.log("Edit flag",this.editproduct.getFlag())
+      if(this.editproduct.getFlag()===1){
+
+        console.log("data here is for edit");
+        this.addproductform.patchValue(this.editproduct.getData());
+
+
+
+      }
+      else{
+        console.log('not editing');
+      }
+    })
   }
 
   onSelectsubCategory(event: any) {

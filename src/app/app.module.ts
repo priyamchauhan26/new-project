@@ -22,6 +22,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { BussinessInfoComponent } from './bussiness-info/bussiness-info.component';
 import { FieldNamePipe } from './fieldnamepipe.pipe';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { ProfileimagedropdownComponent } from './profileimagedropdown/profileimagedropdown.component';
+import { SharedService } from './service/sharedservice/sharedservices.service';
 
 
 
@@ -43,7 +46,9 @@ import { FieldNamePipe } from './fieldnamepipe.pipe';
     DashboardComponent,
     ProfileInfoComponent,
     BussinessInfoComponent,
-    FieldNamePipe
+    FieldNamePipe,
+    ChangepasswordComponent,
+    ProfileimagedropdownComponent
 
 
 
@@ -55,9 +60,10 @@ import { FieldNamePipe } from './fieldnamepipe.pipe';
     FormsModule,
     HttpClientModule,
     MatDialogModule,
+    
    
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

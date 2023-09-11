@@ -14,7 +14,9 @@
             <img
               [src]="image"
               alt="Uploaded Image"
+              formControlName="image"
               class="img-fluid rounded"
+              
               *ngIf="image"
               style="width: 200px; height: 200px"
             />
@@ -53,7 +55,9 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="category">Category</label>
-                  <select name="categoryName" class="form-control" (change)="changecatname($event)" >
+                  <select name="categoryName" 
+                  
+                  class="form-control" (change)="changecatname($event)" >
 
                   >
                   <option  *ngFor=" let category  of productcatlist"  [value]="category.id">{{category.category}}</option>

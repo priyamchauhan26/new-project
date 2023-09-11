@@ -1,0 +1,21 @@
+ <!-- <div class="dropdown" style="position: absolute; margin-top: 50px; margin-left: 220px;" >  -->
+                
+    <div class=" container imagedropdowncontainer" >
+    <div class="dropdown-content" *ngIf="isDropdownOpen">
+      <!-- Add your fields here -->
+      <ul class="list-unstyled">
+        <hr>
+        <li routerLink="/dashboard/profile" (click)="changedropdownvalue()">DashBoard</li>
+        <hr>
+        <li routerLink="changepassword"(click)="changedropdownvalue()">Change Password</li>
+        <hr>
+        <li (click)="changedropdownvalue()">View Products</li>
+        <hr>
+        <li (click)="changedropdownvalue()">SignOut</li>
+        
+        <hr>
+        
+      </ul>
+    </div>
+  </div>
+ <!-- </div>  -->

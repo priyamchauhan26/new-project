@@ -6,8 +6,10 @@ import { MoreInfoModalComponent } from '../more-info-modal/more-info-modal.compo
 import { MessageDto } from '../dtos/Message.model';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { SearchProduct } from '../dtos/searchproduct.model';
+import { EditproductService } from '../service/editproductservice/editproduct.service';
+import { EditData } from '../dtos/edit.model';
 
 
 @Component({
@@ -18,10 +20,13 @@ import { SearchProduct } from '../dtos/searchproduct.model';
 })
 export class ProductListComponent implements OnInit  {
   
+  indexofproduct:number|any;
+  editproduct:EditData=new EditData();
   enableedit=false;
   displayStyle = "none";
   pid:any
   product:Product[]|any;
+  editdata:Product|any;
   messagedto: MessageDto |any;
    search :SearchProduct[]=[];
    searchdata: SearchProduct | any = new SearchProduct('', '');
@@ -54,7 +59,7 @@ export class ProductListComponent implements OnInit  {
   
   
 
-   constructor(private productservice:ProductService,public router:Router){
+   constructor(private productservice:ProductService,public router:Router,private route:ActivatedRoute, public editproductservice:EditproductService){
 
     
 
@@ -79,6 +84,7 @@ export class ProductListComponent implements OnInit  {
   OnSelect(i:number){
     //this.items= this.items.filter((item,i)=> i!= index);
     this.data=this.product[i];
+    this.indexofproduct=i;
     console.log(i);
     console.log(this.data)
    
@@ -103,9 +109,13 @@ export class ProductListComponent implements OnInit  {
   }
 
   EditPopup(){
-
-    console.log(this.pid)
-    this.router.navigate(['addproduct'],this.pid);
+    console.log("Edit enable")
+    this.editproduct.setFlag(1);
+    this.editdata=this.product[this.indexofproduct];
+this.editproduct.setData(this.editdata);
+    console.log(this.editproduct);
+    this.editproductservice.editproduct(this.editproduct);
+    this.router.navigate([`/addproduct/${this.pid}/edit`]);
 
 
   }
