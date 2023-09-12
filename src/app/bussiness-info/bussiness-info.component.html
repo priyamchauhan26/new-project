@@ -1,0 +1,133 @@
+<div class="card justify-content-center" style="width: 72%; margin-left: 100px;">
+    <div class="card-body" >
+        <h1 style="text-align: center; padding-right: 20px;">PROFILE</h1>
+        <form class ='addmerchantdetails'  (ngSubmit)="formSubmit()">
+
+            <div class="row">
+                <div class="form-group">
+          <label for="merchantName">merchant Name</label>
+
+          <input type="text"  [(ngModel)]="merchant.merchantName" name="merchantName"  >
+               </div>
+               <div class="form-group">
+          <label for="shopName">shop Name</label>
+          <input type="text" [(ngModel)]="merchant.shopName" name="shopName"  >
+        </div>
+           </div>
+           
+            <div class="row">
+                <div class="form-group">
+          <label for="shopregId">shop regId</label>
+          <input type="text" [(ngModel)]="merchant.shopregId" name="shopregId"  >
+        </div>
+        <div class="form-group">
+          <label for="gstNumber">gst Number</label>
+          <input type="email" [(ngModel)]="merchant.gstNumber" name="gstNumber" >
+           </div>
+        </div>
+
+           <div class="row">
+            <div class="form-group">
+          <label for="shopyear">shop year</label>
+          <input type="password" [(ngModel)]="merchant.shopyear" name="shopyear" >
+        </div>
+        
+        <div class="form-group">
+          <label for="ownerShop">owner Shop</label>
+          <input type="text" [(ngModel)]="merchant.ownerShop" name="ownerShop" >
+        </div>
+        </div>
+        <div class="row">
+            <div class="form-group " >
+          <label for="accountNumber">account Number</label>
+          <input type="text" [(ngModel)]="merchant.accountNumber" name="accountNumber">
+       </div>
+       <div class="form-group">
+          <label for="accountBranch">account Branch</label>
+          <input type="text" [(ngModel)]="merchant.accountBranch" name="accountBranch" >
+        </div>
+         </div>
+         <div class="row">
+            <div class="form-group " >
+          <label for="address">address</label>
+          <input type="text" [(ngModel)]="merchant.address" name="address" >
+       </div>
+       <div class="form-group">
+          <label for="address2">address2</label>
+          <input type="text" [(ngModel)]="merchant.address2" name="address2" >
+        </div>
+         </div>
+         <div class="row">
+            <div class="form-group " >
+          <label for="bankName">bank Name</label>
+          <input type="text" [(ngModel)]="merchant.bankName" name="bankName" >
+       </div>
+       <div class="form-group">
+          <label for="panNo">pan No</label>
+          <input type="text" [(ngModel)]="merchant.panNo" name="panNo">
+        </div>
+         </div>
+         <div class="row">
+            <div class="form-group " >
+          <label for="createDate">Create Date</label>
+          <input type="text" [(ngModel)]="merchant.createDate" name="createDate" >
+       </div>
+       <div class="form-group">
+          <label for="cardType">card Type</label>
+          <input type="text" [(ngModel)]="merchant.cardType" name="cardType" >
+        </div>
+         </div>
+         <div class="row">
+            <div class="form-group" >
+          <label for="mergeOwner">merge Owner</label>
+          <input type="text" [(ngModel)]="merchant.mergeOwner" name="mergeOwner" >
+       </div>
+       <div class="form-group">
+          <label for="status">Status</label>
+          <input type="text" [(ngModel)]="merchant.status" name="status" >
+        </div>
+         </div>
+
+
+         <div class="row">
+         <div class="form-group">
+            <label for="email">email</label>
+            <input type="text"  [(ngModel)]="merchant.email" name="email" >
+          </div>
+         
+         <div class="form-group">
+            <label for="phone1">phone1</label>
+            <input type="text"  [(ngModel)]="merchant.phone1" name="phone1" >
+          </div>
+          </div>
+
+
+          <div class="row">
+            <div class="form-group">
+               <label for="phone2">phone2</label>
+               <input type="text" [(ngModel)]="merchant.phone2" name="phone2">
+             </div>
+            
+            <div class="form-group">
+               <label for="state">state</label>
+               <input type="text" [(ngModel)]="merchant.state" name="state">
+             </div>
+             </div>
+
+             <div class="row">
+                <div class="form-group">
+                   <label for="city">city</label>
+                   <input type="text" [(ngModel)]="merchant.city" name="city" >
+                 </div>
+                
+                <div class="form-group">
+                   <label for="pincode">pincode</label>
+                   <input type="text" [(ngModel)]="merchant.pincode" name="pincode" >
+                 </div>
+                 </div>
+        <div class="row justify-content-center" >
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+        </form>
+    </div>
+  </div>

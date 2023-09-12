@@ -29,4 +29,13 @@ export class MerchantserviceService {
     {
      return this.http.get('http://localhost:8082/getproductcat')
     }
+
+    addMerchantDetails(data:any)
+    {
+      return this.http.post('http://localhost:8082/merchant/addmerchantdetails',data)
+
+    }
+
+
+
 }
